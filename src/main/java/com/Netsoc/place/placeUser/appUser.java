@@ -1,9 +1,6 @@
 package com.Netsoc.place.placeUser;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,7 +23,7 @@ public class appUser implements UserDetails {
     @SequenceGenerator(
             name = "user_seq",
             sequenceName = "user_seq",
-            allocationSize = 1;
+            allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
@@ -37,6 +34,7 @@ public class appUser implements UserDetails {
     private String StudentID;
     private String email;
     private String password;
+    @Enumerated(EnumType.STRING)
     private UserRole userRole;
     private boolean locked;
     private boolean enabled;
